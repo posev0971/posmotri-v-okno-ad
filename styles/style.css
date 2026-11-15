@@ -49,3 +49,284 @@ ol {
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
 }
+/* Добавьте в конец styles/style.css.
+   Размеры посчитаны по скриншотам макета (кадр 1200px), точные значения сверьте в Figma (Inspect). */
+
+/* ===== Шаг 1–2. Лейаут и размеры ===== */
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  inline-size: 1140px;
+}
+
+.result {
+  flex-shrink: 0;
+  inline-size: 712px;
+}
+
+.result__video-container {
+  position: relative; /* для прелоадера */
+  inline-size: 712px;
+  block-size: 384px;
+  margin-block-end: 16px;
+}
+
+.result__video {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.content__details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-inline-size: 0;
+  gap: 20px;
+}
+
+.content__list-container {
+  position: relative; /* для прелоадера */
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* между последней карточкой и кнопкой */
+  block-size: 300px;
+  overflow-y: auto;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.content__video-card {
+  display: flex;
+  align-items: flex-start;
+}
+
+.content__video-card-thumbnail {
+  flex-shrink: 0;
+  inline-size: 196px;
+  min-inline-size: 196px;
+  block-size: 100px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+  min-inline-size: 0;
+}
+
+/* ===== Шаг 3. Тексты ===== */
+.search-form__fieldset-title {
+  margin-block-end: 6px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.title {
+  font-family: Oswald, sans-serif;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.content__accent {
+  color: #4d4d4d;
+}
+
+.content__card-link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.content__video-card-title {
+  font-family: Oswald, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content__video-card-description {
+  font-size: 18px;
+  line-height: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== Шаг 4. Формы ===== */
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__fieldset {
+  border: 0;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 16px;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  inline-size: fit-content;
+}
+
+.search-form__textfield {
+  appearance: none;
+  inline-size: 225px;
+  padding: 4px 0;
+  border: 0;
+  border-block: 1px solid #fff;
+  border-radius: 0;
+  color: #fff;
+  background-color: transparent;
+  font: inherit;
+}
+
+.search-form__textfield::placeholder {
+  color: rgb(255 255 255 / 0.7);
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.search-form__pseudo-checkbox {
+  inline-size: 16px;
+  block-size: 16px;
+  padding: 1px;
+  border: 1px solid #fff;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: "";
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  background-color: #fff;
+  opacity: 0;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  opacity: 1;
+}
+
+/* подчёркивание только у чекбоксов, не у поискового поля */
+.search-form__checkbox-list .search-form__label:hover {
+  text-decoration: underline;
+}
+
+/* ===== Шаг 5. Кнопки ===== */
+.button {
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: transparent;
+  font: inherit;
+  font-weight: 700;
+}
+
+.search-form__submit-button {
+  align-self: flex-end;
+  inline-size: 195px;
+  block-size: 34px;
+}
+
+.more-button {
+  inline-size: 100%;
+  block-size: 34px;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  background-color: #555;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ===== Шаг 6. Карточки ===== */
+.content__list-item {
+  padding-inline: 3px;
+}
+
+.content__card-link_current {
+  background-color: #333; /* сверьте по Figma */
+}
+
+.content__card-link:active {
+  background-color: #555;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+}
+
+/* ===== Шаг 7. Курсор ===== */
+.button,
+.search-form__label,
+.content__card-link {
+  cursor: pointer;
+}
+
+.search-form__textfield {
+  cursor: text;
+}
