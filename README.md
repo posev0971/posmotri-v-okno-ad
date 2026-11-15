@@ -1,3 +1,10 @@
-git add README.md
-git commit -m "Add README"
-git push
+# Посмотри в окно
+
+Проектная работа Яндекс Практикума: вёрстка интерфейса приложения по макету.
+
+## Репозиторий
+https://github.com/posev0971/posmotri-v-okno-ad
+
+## Стек
+- HTML
+- CSS (Flexbox)
